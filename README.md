@@ -24,7 +24,7 @@ If you don't have Node.js installed or you have a lower version, [download the l
 
 Let's install the application (aka, "clone the repository") onto your local machine.
 
-Change to your destination directory:
+Change to your destination directory (for this example, we'll be using our "home directory"):
 
 ```bash
 $ cd ~
@@ -99,7 +99,7 @@ Replace the snippet `id` with your snippet's id.
 
 ```js
 // app.js
-Snippet.render(YOUR_SNIPPET_ID).then(render => console.log(render));
+Snippet.render(YOUR_SNIPPET_ID) //...
 ```
 
 Stop the node app, restart it, and refresh the page. You should see your snippet's content in the document!
