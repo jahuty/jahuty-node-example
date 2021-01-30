@@ -77,33 +77,34 @@ Navigate to http://localhost:3000, and you should see the following:
 
 ![Jahuty example](https://github.com/jahuty/jahuty-node-example/blob/master/example.png)
 
-In this example, we're retrieving the "default" snippet (i.e., the snippet we control for system tests):
-
-* We initialized our SDK with our (public) API key at the top of the file (when you include Jahuty in your own application, we recommend setting Jahuty's API key on startup); and,
-* We used the SDK to retrieve the snippet with an id of 1 in `app.js`.
+In this example, we're retrieving the "default" snippet (i.e., the snippet we control for system tests). We instantiated our client with our (public) API key and retrieved the snippet with an id of 1 in `app.js`.
 
 ## Customizing the example
 
 Ready to use your own snippet?
 
-If you haven't already, sign up, confirm your email address, and create a snippet.
+If you haven't already, [sign up](https://app.jahuty.com/users/sign_up).
 
-Replace the default API key in `app.js` with your organization's API key:
+Replace the default API key in `app.js` with the temporary API key we emailed you:
 
 ```js
 // app.js
-Jahuty.setKey('YOUR_API_KEY');
+
+// ...
+const jahuty = new Client({ apiKey: YOUR_API_KEY });
 ```
 
 Replace the snippet `id` with your snippet's id.
 
 ```js
 // app.js
-Snippet.render(YOUR_SNIPPET_ID) //...
+
+// ...
+const render = await jahuty.snippets.render(YOUR_SNIPPET_ID);
 ```
 
 Stop the node app, restart it, and refresh the page. You should see your snippet's content in the document!
 
-If you have questions, try [our documentation](https://www.jahuty.com/docs) or feel free too [ask us a question](https://www.jahuty.com/contacts/new).
+If you have questions, try [our documentation](https://docs.jahuty.com) or feel free too [ask us a question](https://www.jahuty.com/contact).
 
 We hope you enjoy using [Jahuty](https://www.jahuty.com/) to stop worrying about content changes, and we're excited to partner with you!

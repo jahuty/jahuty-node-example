@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jahuty/jahuty-node-example#readme",
   "dependencies": {
-    "@jahuty/jahuty": "^0.1.5",
+    "@jahuty/jahuty": "^0.2.0",
     "express": "^4.17.1"
   }
 }
