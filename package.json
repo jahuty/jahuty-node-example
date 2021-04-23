@@ -4,7 +4,7 @@
   "description": "An example Express application with Jahuty's Node.js SDK",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,15 @@
   },
   "homepage": "https://github.com/jahuty/jahuty-node-example#readme",
   "dependencies": {
-    "@jahuty/jahuty": "^0.2.0",
+    "@jahuty/jahuty": "^0.3.0",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.5",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
   }
 }
