@@ -1,5 +1,7 @@
 # jahuty-node-example
 
+[![CircleCI](https://circleci.com/gh/jahuty/jahuty-node-example.svg?style=svg)](https://circleci.com/gh/jahuty/jahuty-node-example)
+
 An example Node application using [Jahuty's Node SDK](https://github.com/jahuty/jahuty-node).
 
 ## Checking your environment
