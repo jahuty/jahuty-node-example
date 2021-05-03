@@ -56,6 +56,24 @@ describe('system tests', () => {
     });
   });
 
+  describe('snippet-with-latest', () => {
+    it('has status code', async () => {
+      expect.assertions(1);
+
+      const res = await request(app).get('/snippet-with-latest');
+
+      expect(res.status).toBe(200);
+    });
+
+    it('has content', async () => {
+      expect.assertions(1);
+
+      const res = await request(app).get('/snippet-with-latest');
+
+      expect(res.text).toContain('This content is latest');
+    });
+  });
+
   describe('snippets', () => {
     it('has status code', async () => {
       expect.assertions(1);
@@ -110,6 +128,26 @@ describe('system tests', () => {
 
       expect(res.text).toContain('This is my first snippet');
       expect(res.text).toContain('This foo is bar');
+    });
+  });
+
+  describe('snippets-with-latest', () => {
+    it('has status code', async () => {
+      expect.assertions(1);
+
+      const res = await request(app).get('/snippets-with-latest');
+
+      expect(res.status).toBe(200);
+    });
+
+    it('has content', async () => {
+      expect.assertions(3);
+
+      const res = await request(app).get('/snippets-with-latest');
+
+      expect(res.text).toContain('This is my first snippet');
+      expect(res.text).toContain('This is ');
+      expect(res.text).toContain('This content is latest');
     });
   });
 });

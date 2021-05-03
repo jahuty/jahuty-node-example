@@ -7,9 +7,9 @@ const app = express();
  * The examples below utilize our "system test" setup:
  *
  *   - The "system test" organization exists in Jahuty with an API key.
- *   - The organization has two snippets, 1, a static phrase, and 62, a phrase
- *     with two variables: foo and bar.
- *   - The organiation has a tag, "test", which has been applied to both
+ *   - The organization has two snippets: 1, a static phrase; 62, which expects
+ *     two variables, foo and bar; and, 102, which has staged content.
+ *   - The organiation has a tag, "test", which has been applied to all
  *     snippets.
  *
  * @see  https://docs.jahuty.com/components/organizations
@@ -43,6 +43,12 @@ app.get('/snippet-with-params', async (req, res) => {
   const render = await jahuty.snippets.render(62, {
     params: { foo: 'foo', bar: 'bar' },
   });
+
+  res.send(`${render.content}`);
+});
+
+app.get('/snippet-with-latest', async (req, res) => {
+  const render = await jahuty.snippets.render(102, { preferLatest: true });
 
   res.send(`${render.content}`);
 });
@@ -83,6 +89,12 @@ app.get('/snippets-with-params', async (req, res) => {
   });
 
   res.send(`${render1.content} ${render62.content}`);
+});
+
+app.get('/snippets-with-latest', async (req, res) => {
+  const renders = await jahuty.snippets.allRenders('test', { preferLatest: true });
+
+  res.send(`${renders[0].content} ${renders[1].content} ${renders[2].content}`);
 });
 
 module.exports = app;
